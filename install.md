@@ -16,6 +16,17 @@ sudo -u postgres psql
 select version();
 ```
 
+- Change password:
+```
+alter user postgres password 'passgohere';
+```
+
+after that we can login from normal user shell
+```
+psql -U postgres -h localhost -p 5432
+```
+it will promts the password. Enter the password then done.
+
 2. Setup pgadmin ( web ui management for pgsql )
 - Pgadmin: Install it first for web only since we install pgadmin in server
 ```
@@ -44,5 +55,8 @@ email and pass you entered during installation
 # Go here: https://www.postgresqltutorial.com/load-postgresql-sample-database/
 After get the datasample. Restore it
 ```
-# /usr/lib/postgresql/12/bin/pg_restore -u post ( in progress )
+pg_restore -U postgres -d dvdrental dvdrental.tar -h localhost -p 5432
+```
 
+After restore we can take a look in pgadmin. Remember to add a server with your information. Then you will see 2 databases:
+One is postgres, second is what we just create and restore data to there ( dvdrental )
