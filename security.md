@@ -12,3 +12,9 @@ host    all             username             10.5.0.1/32            md5
 # replication privilege.
 host    replication     all             10.5.0.1/32            md5
 ```
+
+- Reload after modifed:
+```
+psql -U postgres
+postgres=> SELECT pg_reload_conf();
+```
