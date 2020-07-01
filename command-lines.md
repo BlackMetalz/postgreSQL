@@ -19,7 +19,14 @@
 ```
 create table wtf (id integer primary key, name varchar);
 ```
-
+- Clone table from exist table
+```
+CREATE TABLE new_table AS 
+SELECT
+*
+FROM
+    existing_table;
+```
 
 1. Select 
 # Source: https://www.postgresqltutorial.com/postgresql-select/
