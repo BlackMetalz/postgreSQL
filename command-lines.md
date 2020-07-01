@@ -11,7 +11,10 @@
 ```
 \dt
 ```
-
+- Show all users:
+```
+\du
+```
 - Create table command:
 ```
 create table wtf (id integer primary key, name varchar);
