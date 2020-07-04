@@ -57,5 +57,5 @@
 
 - Dump with format type is tar and db is `test_restore`:
 ```
-pg_dump -h localhost -U postgres -F t test_restore > test_restore_1.tar
+pg_dump -h localhost -U postgres -F t test_restore > test_restore_$(date +"%Y_%m_%d_%I_%M_%p").tar
 ```
