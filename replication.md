@@ -74,11 +74,15 @@ max_wal_senders=3
 service postgresql stop
 ```
 - Rename data folder ( Rename the main in the postgresql directory to something else since the backup won’t replace the existing files in the same folder. )
+
 ```
 mv /data/postgresql/main /data/postgresql/main_old
 ```
+
+```
 sudo -u postgres pg_basebackup -h 10.3.48.54 -D /data/postgresql/main -U repl -v -P -R
 ```
+
 Then enter password you used to create repl user
 
 - Then start postgresql
