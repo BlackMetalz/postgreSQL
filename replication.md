@@ -141,3 +141,34 @@ postgres  8038  8023  0 16:34 ?        00:00:00 postgres: 12/main: walreceiver  
 root      8480 22229  0 16:35 pts/1    00:00:00 grep --color=auto postgres
 ```
 
+
+### Promote slave: ( from slave )
+- Get cluster from from :
+```
+cat /etc/postgresql/12/main/postgresql.conf | grep cluster_name
+```
+
+- Check status:
+```
+pg_ctlcluster 12/main status
+```
+
+Output example:
+```
+pg_ctl: server is running (PID: 20016)
+/usr/lib/postgresql/12/bin/postgres "-D" "/data/postgresql/main" "-c" "config_file=/etc/postgresql/12/main/postgresql.conf"
+```
+
+- Start promote:
+```
+pg_ctlcluster 12/main promote
+```
+
+You will see replication from master stop by: 
+```
+select * from pg_stat_replication;
+```
+
+Start check by insert data into new master, it will no longer in state read only
+
+
