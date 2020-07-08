@@ -59,3 +59,8 @@
 ```
 pg_dump -h localhost -U postgres -F t test_restore > test_restore_$(date +"%Y_%m_%d_%I_%M_%p").tar
 ```
+
+- Restore:
+```
+pg_restore -U postgres -h localhost -d repl_test_db dvdrental.tar
+```
